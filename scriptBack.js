@@ -37,7 +37,8 @@ window.onload = () => {
 
         let form = document.getElementById("form");
         form.appendChild(deleteBtn);
-      });
+      })
+      .catch((err) => console.log("error", err));
   } else {
     document.getElementById("name").value = " ";
     document.getElementById("description").value = " ";
@@ -96,7 +97,8 @@ const deleteItem = () => {
         document.getElementById("brand").value = " ";
         document.getElementById("imgurl").value = " ";
         document.getElementById("price").value = " ";
-      });
+      })
+      .catch((err) => console.log("error", err));
   }
 };
 const resetForm = () => {

@@ -15,7 +15,7 @@ window.onload = () => {
       const { name, description, brand, imageUrl, price } = product;
 
       let img = document.createElement("img");
-      img.className = "img-fluid rounded object-fit-cover";
+      img.className = "img-fluid rounded-5 object-fit-cover";
       img.src = imageUrl;
       img.style.height = "500px";
 
@@ -23,12 +23,14 @@ window.onload = () => {
       imageBox.appendChild(img);
 
       let title = document.createElement("h1");
-      title.className = "h1 text-white";
+      title.className = "h1 text-white rounded";
       title.innerText = name;
+
       let nameBox = document.getElementById("name");
       nameBox.appendChild(title);
+
       let subtitle = document.createElement("p");
-      subtitle.className = "h5 fst-italic text-light";
+      subtitle.className = "h5 fst-italic text-secondary";
       subtitle.innerText = description;
 
       let descBox = document.getElementById("description");
@@ -47,5 +49,6 @@ window.onload = () => {
 
       let priceBox = document.getElementById("price");
       priceBox.appendChild(prices);
-    });
+    })
+    .catch((err) => console.log("error", err));
 };
