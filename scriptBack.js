@@ -32,6 +32,9 @@ window.onload = () => {
         let deleteBtn = document.createElement("button");
         deleteBtn.className = "btn btn-danger";
         deleteBtn.innerText = "Elimina";
+
+        deleteBtn.addEventListener("click", () => deleteItem());
+
         let form = document.getElementById("form");
         form.appendChild(deleteBtn);
       });
@@ -68,6 +71,7 @@ form.onsubmit = function (e) {
         alert("Prodotto modificato con successo!");
       } else {
         alert("Prodotto creato con successo!");
+        window.location.assign("./frontoffice.html");
       }
     });
 };
@@ -78,10 +82,20 @@ const deleteItem = () => {
   if (acceptPrompt) {
     fetch(URL_ITEM, {
       method: "DELETE",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRkZWVkNjI1NGU4ODAwMTgzZjE4OGMiLCJpYXQiOjE2OTk2MDYyMzEsImV4cCI6MTcwMDgxNTgzMX0.il0AUW1BBuBE2WMFVPMYGY_QfIMpFiSaMEBmeBy-2YE",
+        "Content-Type": "application/json",
+      },
     })
       .then((res) => res.json())
       .then((deletedItem) => {
         alert("Hai eliminato l'oggetto con successo ");
+        document.getElementById("name").value = " ";
+        document.getElementById("description").value = " ";
+        document.getElementById("brand").value = " ";
+        document.getElementById("imgurl").value = " ";
+        document.getElementById("price").value = " ";
       });
   }
 };
