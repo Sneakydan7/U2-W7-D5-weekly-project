@@ -1,3 +1,6 @@
+const params = new URLSearchParams(window.location.search);
+const itemId = params.get("_id");
+
 function getProducts(url) {
   fetch("https://striveschool-api.herokuapp.com/api/product/", {
     method: "GET",
@@ -50,8 +53,9 @@ function getProducts(url) {
           modifyBtn.className = "btn btn-sm btn-danger";
           modifyBtn.type = "button";
           modifyBtn.innerText = "Modifica";
+
           modifyBtn.onclick = function (e) {
-            e.target.closest(".col-md-4").remove();
+            window.location.assign(`./backoffice.html?_id=${element._id}`);
           };
 
           btngroup.appendChild(moreBtn);
@@ -69,4 +73,6 @@ function getProducts(url) {
         .catch((err) => console.log("error", err));
     });
 }
-getProducts();
+window.onload = () => {
+  getProducts();
+};
