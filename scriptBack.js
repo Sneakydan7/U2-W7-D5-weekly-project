@@ -99,3 +99,15 @@ const deleteItem = () => {
       });
   }
 };
+const resetForm = () => {
+  const acceptReset = confirm("Resettare TUTTI campi?");
+  if (acceptReset) {
+    document.getElementById("name").value = " ";
+    document.getElementById("description").value = " ";
+    document.getElementById("brand").value = " ";
+    document.getElementById("imgurl").value = " ";
+    document.getElementById("price").value = " ";
+  }
+};
+let resetBtn = document.getElementById("reset");
+resetBtn.addEventListener("click", resetForm);

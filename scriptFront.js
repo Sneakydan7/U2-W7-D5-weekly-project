@@ -46,6 +46,10 @@ function getProducts(url) {
           moreBtn.type = "button";
           moreBtn.innerText = "Scopri di più";
 
+          moreBtn.onclick = function (e) {
+            window.location.assign(`./info.html?_id=${element._id}`);
+          };
+
           const modifyBtn = document.createElement("button");
           modifyBtn.className = "btn btn-sm btn-danger";
           modifyBtn.type = "button";
@@ -73,5 +77,3 @@ function getProducts(url) {
 window.onload = () => {
   getProducts();
 };
-
-let;
