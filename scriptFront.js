@@ -1,6 +1,3 @@
-const params = new URLSearchParams(window.location.search);
-const itemId = params.get("_id");
-
 function getProducts(url) {
   fetch("https://striveschool-api.herokuapp.com/api/product/", {
     method: "GET",
@@ -76,3 +73,5 @@ function getProducts(url) {
 window.onload = () => {
   getProducts();
 };
+
+let;
